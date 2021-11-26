@@ -1,2 +1,3 @@
-# Conceptos y Aplicaciones en Big Data
-Activididades finales de Conceptos y Aplicaciones en Big Data (PG)
+## Conceptos y Aplicaciones en Big Data - Año 2021
+# Activididades finales
+# Marcelo Martín Taffarel
