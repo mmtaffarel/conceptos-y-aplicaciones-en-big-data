@@ -19,10 +19,9 @@ actual, actualiza ancestros con descendientes y sigue iterando hasta que no hay 
 while se imprime la cantidad de descendientes para la abuela actual y se reinicia el ciclo con la siguiente.
 """
 
-import os, sys
+import os
 
 os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"     
-#os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-9-oracle"
 
 from pyspark import SparkContext, SparkConf
 
@@ -34,10 +33,8 @@ dataset = "dataset/"
 inputDir = "input/"
 outputDir = "a_output/"
 fileName = "Genealogia.txt"
-#fileName = "test.txt"
 fileInputPath = dataset + inputDir + fileName;
 dirOutputFile = dataset + outputDir
-
 
 def ffilter1(t):
     if t[2] == 'None':

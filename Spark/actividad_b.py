@@ -20,8 +20,7 @@ finaliza cuando no existen más ancestros hacia arriba en el árbol.
 
 import os
 
-#os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"     
-os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-9-oracle"
+os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"     
 
 from pyspark import SparkContext, SparkConf
 
@@ -33,7 +32,6 @@ dataset = "dataset/"
 inputDir = "input/"
 outputDir = "a_output/"
 fileName = "Genealogia.txt"
-#fileName = "test.txt"
 fileInputPath = dataset + inputDir + fileName;
 dirOutputFile = dataset + outputDir
 
@@ -81,4 +79,3 @@ while True:
         dniDescendienteTmp = descendiente.map(lambda t: (t[2], (t[0], t[1])))
         ancestro = dniDescendienteTmp.join(personas)
         
-

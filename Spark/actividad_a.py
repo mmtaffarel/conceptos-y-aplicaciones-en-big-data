@@ -19,8 +19,7 @@ y ya no se requiere verificar si son primos.
 """
 import os, sys
 
-#os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"     
-os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-9-oracle"
+os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"     
 
 from pyspark import SparkContext, SparkConf
 
@@ -32,7 +31,6 @@ dataset = "dataset/"
 inputDir = "input/"
 outputDir = "a_output/"
 fileName = "Genealogia.txt"
-#fileName = "test.txt"
 fileInputPath = dataset + inputDir + fileName;
 dirOutputFile = dataset + outputDir
 
@@ -59,15 +57,9 @@ if(dnis.count() < 2):
     sys.exit()
 
 dnis = dnis.map(lambda t: (t[2], (t[0], t[1])))
-#print(dnis.collect())
-#sys.exit()
 personas = personas.map(lambda t: (t[1], (t[0], t[2])))
-#print(personas.collect())
-#sys.exit()
 
 madres = dnis.join(personas)
-#print(madres.collect())
-#sys.exit()
 
 if(madres.count() < 2):
     print("Alguno de los DNIs ingresados no tiene madre")
@@ -79,8 +71,6 @@ else:
         print("Los DNI ingresados tienen la misma madre por lo tanto son hermanos")
         sys.exit()
     else:
-        #print(res[0][1][1][1])
-        #print(res[1][1][1][1])
         if(res[0][1][1][1] == res[1][1][1][1]):
             print("Los DNI ingresados son primos")
         else:
