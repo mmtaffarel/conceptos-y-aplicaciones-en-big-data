@@ -14,9 +14,10 @@ El nombre de la "abuela" que tiene más descendientes
 La idea es obtener una RDD solo con las super abuelas y desde ahí una lista para ir iterando por cada una de
 ellas e ir contando sus descendientes. En cada ciclo del bucle for se arma una RDD con el abuelaID (DNI) y se
 setea una variable broadcast con una lista que acumulará la cantidad de descendientes para esa abuela. Luego, el
-bucle while va bajando de a un nivel por el árbol y en cada nivel actualiza la cantidad de ancestros de la abuela
-actual, actualiza ancestros con descendientes y sigue iterando hasta que no hay mas descendientes. A la salida del
-while se imprime la cantidad de descendientes para la abuela actual y se reinicia el ciclo con la siguiente.
+bucle while va bajando de a un nivel por el árbol (con join) y en cada nivel actualiza la cantidad de descendientes 
+de la abuela actual, actualiza ancestros con descendientes y sigue iterando hasta que no haya más descendientes. 
+A la salida del while se imprime la cantidad de descendientes para la abuela actual y se reinicia el ciclo con la 
+siguiente abuela.
 """
 
 import os
